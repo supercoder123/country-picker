@@ -1,0 +1,63 @@
+.container {
+    padding: 16px 48px;
+    .back {
+        max-width: 100px;
+        width: 100%;
+        background: none;
+        cursor: pointer;
+        border: none;
+        border-radius: 5px;
+        color: #615353;
+        align-items: center;
+        margin-top: 45px;
+        display: flex;
+        justify-content: space-around;
+        padding: 11px;
+        box-shadow: 0 0 10px 3px #eee;
+    }
+    .detailsGrid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(auto, 500px));
+        padding-top: 50px;
+        max-width: 1111px;
+        grid-gap: 25px;
+        justify-content: space-between;
+        img {
+            max-width: 100%;
+        }
+        .details {
+            .name {
+                font-size: 26px;
+                font-weight: 800;
+                margin-top: 10px;
+            }
+            .detailsPoints {
+                margin-top: 10px;
+                font-size: 15px;
+                display: flex;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                span.point {
+                    font-size: 15px;
+                    font-weight: 600;
+                    display: inline-block;
+                    margin: 0 10px 5px 0;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .container {
+        padding: 16px 18px;
+        .back {
+            margin-top: 14px
+        }
+        .details {
+            .name {
+                font-size: 20px;
+            }
+        }
+    }
+}

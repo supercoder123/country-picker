@@ -1,7 +1,7 @@
-import { FETCH_COUNTRIES, SET_LOADING, SEARCH_FOR_COUNTRIES, SET_FILTER} from '../actions/consts';
+import { FETCH_COUNTRIES, SET_LOADING, SET_SEARCH_RESULTS, SET_FILTER, SET_SEARCH_TERM, SET_ALL_COUNTRIES} from '../actions/consts';
 
 const initialState = {
-    theme: 'Dark',
+    theme: 'Light',
     searchTerm: '',
     filter: '',
     allCountries: [],
@@ -24,20 +24,27 @@ function countryReducer(state = initialState, action) {
                 ...state,
                 loading: action.payload
             }
-        case SEARCH_FOR_COUNTRIES:
+        case SET_SEARCH_TERM: 
             return {
                 ...state,
                 searchTerm: action.payload.toLowerCase(),
+            }
+        case SET_SEARCH_RESULTS:
+            return {
+                ...state,
                 searchResults: state.allCountries.filter(country => {
-                    return country.name.toLowerCase().includes(action.payload.toLowerCase());
+                    return country.name.toLowerCase().includes(state.searchTerm);
                 })
             }
         case SET_FILTER:
             return {
                 ...state,
                 filter: action.payload.region,
-                allCountries: action.payload.res,
-                searchResults: action.payload.res
+            }
+        case SET_ALL_COUNTRIES:
+            return {
+                ...state,
+                allCountries: action.payload
             }
             default:
                 return state;

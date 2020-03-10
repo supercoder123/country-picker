@@ -1,0 +1,23 @@
+span.point {
+    font-size: 15px;
+    font-weight: 600;
+    display: inline-block;
+    margin: 0 10px 5px 0;
+}
+.borderCountries{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 35px;
+    .pill {
+        padding: 6px 19px;
+        box-shadow: 0 0 7px 1px #eee;
+        margin: 5px 10px 5px 0;
+        cursor: pointer;
+        border-radius: 5px;
+        font-size: 13px;
+    }
+    .pill:hover {
+        opacity: 0.5;
+    }
+}

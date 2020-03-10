@@ -1,4 +1,4 @@
-.headerContainer {
+.container {
     background-color: white;
     height: 52px;
     box-shadow: 0 0 3px 2px #eee;
@@ -14,5 +14,11 @@
         font-family: inherit;
         cursor: pointer;
         outline: none;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .container {
+        padding: 16px 18px;
     }
 }

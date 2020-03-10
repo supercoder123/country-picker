@@ -1,12 +1,20 @@
 import React from "react";
 import styles from "./styles.module.scss";
+import { useHistory } from "react-router-dom";
 
-function Card({ imgUrl, countryName, population, region, capital }) {
+function Card({ country }) {
+  const { flag, name, population, region, capital } = country;
+  const history = useHistory();
+
+  function openDetails() {
+    history.push('/details', country);
+  }
+  
   return (
-    <div className={styles.card}>
-      <img src={imgUrl} alt="Flag" />
+    <div onClick={() => openDetails()} className={styles.card}>
+      <img src={flag} alt="Flag" />
       <div className={styles.content}>
-        <div className={styles.countryName}>{countryName}</div>
+        <div className={styles.countryName}>{name}</div>
         <div>
           <span className={styles.label}>Population:</span> {population}
         </div>

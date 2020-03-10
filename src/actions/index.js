@@ -1,8 +1,10 @@
 import {
   FETCH_COUNTRIES,
   SET_LOADING,
-  SEARCH_FOR_COUNTRIES,
-  SET_FILTER
+  SET_SEARCH_RESULTS,
+  SET_FILTER,
+  SET_SEARCH_TERM,
+  SET_ALL_COUNTRIES
 } from "./consts";
 import axios from "axios";
 
@@ -23,17 +25,27 @@ function setLoading(isLoading) {
 function setFilter(filter) {
   return {
     type: SET_FILTER,
-    payload: {
-      region: filter.region,
-      res: filter.res
-    }
+    payload: filter
   };
 }
 
-export function searchCountries(searchTerm) {
+export function setSearchTerm(term) {
   return {
-    type: SEARCH_FOR_COUNTRIES,
-    payload: searchTerm
+    type:  SET_SEARCH_TERM,
+    payload: term
+  }
+}
+
+export function setAllCountries(countries) {
+  return {
+    type:  SET_ALL_COUNTRIES,
+    payload: countries
+  }
+}
+
+export function searchCountries() {
+  return {
+    type: SET_SEARCH_RESULTS,
   };
 }
 
@@ -54,13 +66,17 @@ export function fetchCountriesByRegion(region) {
       axios
         .get(`https://restcountries.eu/rest/v2/region/${region}`)
         .then(function(res) {
-          dispatch(setFilter({ region: region, res: res.data }));
+          dispatch(setFilter(region));
+          dispatch(setAllCountries(res.data))
+          dispatch(searchCountries())
           dispatch(setLoading(false));
         });
     } else {
       dispatch(setLoading(true));
       axios.get("https://restcountries.eu/rest/v2/all").then(function(res) {
-        dispatch(setFilter({ region: region, res: res.data }));
+        dispatch(setFilter(region));
+        dispatch(setAllCountries(res.data))
+        dispatch(searchCountries())
         dispatch(setLoading(false));
       });
     }

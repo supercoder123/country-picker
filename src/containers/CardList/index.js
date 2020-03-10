@@ -1,18 +1,9 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { connect } from "react-redux";
 import Card from "../../components/Card";
 import styles from "./styles.module.scss";
-import Loader from '../../components/Loader';
-import { getCountries } from "../../actions";
 
-const CardList = ({ searchResults, loading, fetchCountries }) => {
-  useEffect(() => {
-    fetchCountries();
-  }, [fetchCountries]);
-    
-  if (loading) {
-    return <Loader />;
-  }
+const CardList = ({ searchResults }) => {
   return (
     <div className={styles.container}>
       <div className={styles.cardGrid}>
@@ -20,11 +11,7 @@ const CardList = ({ searchResults, loading, fetchCountries }) => {
           return (
             <Card
               key={index}
-              imgUrl={country.flag}
-              countryName={country.name}
-              population={country.population}
-              region={country.region}
-              capital={country.capital}
+              country={country}
             />
           );
         })}
@@ -36,14 +23,7 @@ const CardList = ({ searchResults, loading, fetchCountries }) => {
 const mapStateToProps = state => {
   return {
     searchResults: state.searchResults,
-    loading: state.loading
   };
 };
 
-function mapDispatchToProps(dispatch) {
-    return {
-      fetchCountries: () => dispatch(getCountries())
-    };
-  }
-
-export default connect(mapStateToProps, mapDispatchToProps)(CardList);
+export default connect(mapStateToProps, null)(CardList);
