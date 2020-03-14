@@ -4,7 +4,8 @@ import {
   SET_SEARCH_RESULTS,
   SET_FILTER,
   SET_SEARCH_TERM,
-  SET_ALL_COUNTRIES
+  SET_ALL_COUNTRIES,
+  CHANGE_THEME
 } from "./consts";
 import axios from "axios";
 
@@ -33,6 +34,13 @@ export function setSearchTerm(term) {
   return {
     type:  SET_SEARCH_TERM,
     payload: term
+  }
+}
+
+export function toggleTheme() {
+
+  return {
+    type: CHANGE_THEME
   }
 }
 

@@ -9,6 +9,8 @@ export const SET_ALL_COUNTRIES = 'SET_ALL_COUNTRIES';
 export const SET_LOADING = 'SET_LOADING';
 export const START_REQUEST = 'START_REQUEST';
 export const REQUEST_FAILED = 'REQUEST_FAILED';
+export const LIGHT_THEME = 'light';
+export const DARK_THEME = 'dark';
 
 
 

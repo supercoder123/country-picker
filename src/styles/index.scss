@@ -7,8 +7,22 @@
     font-family: 'Nunito Sans', sans-serif;
     margin: 0;
     padding: 0;
+    -webkit-tap-highlight-color: transparent;
 }
 body {
     margin: 0;
     padding: 0;
+}
+.light {
+    --text-color: #{$lightModeText};
+    --background: #{$whiteTextAndBackground};
+    --container-background: #{$whiteTextAndBackground};
+    --box-shadow: #{$lightModeBackground};
+}
+
+.dark {
+    --text-color: #{$whiteTextAndBackground};
+    --background: #{$darkModeElements};
+    --container-background: #{$darkModeBackground};
+    --box-shadow: #{$darkBoxShadow};
 }

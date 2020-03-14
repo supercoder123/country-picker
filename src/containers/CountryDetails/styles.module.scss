@@ -1,5 +1,8 @@
 .container {
     padding: 16px 48px;
+    background-color: var(--container-background);
+    color: var(--text-color);
+    transition: all 0.3s linear;
     .back {
         max-width: 100px;
         width: 100%;
@@ -7,13 +10,15 @@
         cursor: pointer;
         border: none;
         border-radius: 5px;
-        color: #615353;
+        color: var(--text-color);
         align-items: center;
         margin-top: 45px;
         display: flex;
         justify-content: space-around;
         padding: 11px;
-        box-shadow: 0 0 10px 3px #eee;
+        box-shadow: 0 0 10px 3px var(--box-shadow);
+        background-color: var(--background);
+        transition: all 0.3s linear;
     }
     .detailsGrid {
         display: grid;

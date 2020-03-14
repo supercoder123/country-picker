@@ -1,14 +1,22 @@
 .search {
     display: flex;
-    box-shadow: 0 0 10px 0px #eee;
+    box-shadow: 0 0 10px 0px var(--box-shadow);
     max-width: 410px;
     width: 100%;
+    background-color: var(--background);
+    transition: all 0.3s linear;
     input {
         border: none;
         outline: none;
         width: 100%;
         height: auto;
         font-family: 'Nunito Sans', sans-serif;
+        color: var(--text-color);
+        background-color: var(--background);
+        transition: all 0.3s linear;
+    }
+    input::placeholder{
+        color: var(--text-color);
     }
 }
 i.fa {

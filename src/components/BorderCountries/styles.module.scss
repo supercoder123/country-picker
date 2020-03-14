@@ -6,16 +6,18 @@ span.point {
 }
 .borderCountries{
     display: flex;
-    align-items: center;
+    align-items: baseline;
     flex-wrap: wrap;
     margin-top: 35px;
     .pill {
         padding: 6px 19px;
-        box-shadow: 0 0 7px 1px #eee;
+        box-shadow: 0 0 7px 1px var(--box-shadow);
         margin: 5px 10px 5px 0;
         cursor: pointer;
-        border-radius: 5px;
+        border-radius: 3px;
         font-size: 13px;
+        transition: all 0.3s linear;
+        background-color: var(--background);
     }
     .pill:hover {
         opacity: 0.5;

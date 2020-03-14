@@ -1,19 +1,33 @@
 .container {
-    background-color: white;
     height: 52px;
-    box-shadow: 0 0 3px 2px #eee;
+    box-shadow: 0 0 3px 2px var(--box-shadow);
     padding: 16px 48px;
     display: flex;
+    background-color: var(--background);
     justify-content: space-between;
+    transition: all 0.3s linear;
+    position: relative;
     .header {
         font-weight: 800;
+        color: var(--text-color);
+        transition: all 0.3s linear;
     }
     .themeButton {
         background: transparent;
         border: none;
         font-family: inherit;
         cursor: pointer;
+        display: flex;
+        color: var(--text-color);
+        background-color: var(--background);
+        justify-content: space-between;
+        width: 100px;
+        align-items: baseline;
+        transition: all 0.3s linear;
         outline: none;
+        .themeName {
+            text-transform: capitalize;
+        }
     }
 }
 

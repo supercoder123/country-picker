@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./styles.module.scss";
 import { useHistory } from "react-router-dom";
+import cx from 'classnames';
 
 function Card({ country }) {
   const { flag, name, population, region, capital } = country;
@@ -11,7 +12,7 @@ function Card({ country }) {
   }
   
   return (
-    <div onClick={() => openDetails()} className={styles.card}>
+    <div onClick={() => openDetails()} className={cx(styles.card, styles.transition)}>
       <img src={flag} alt="Flag" />
       <div className={styles.content}>
         <div className={styles.countryName}>{name}</div>
