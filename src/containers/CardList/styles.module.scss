@@ -4,7 +4,7 @@
     transition: all 0.3s linear;
     .cardGrid {
         display: grid;
-        align-items: center;
+        justify-items: center;
         grid-gap: 40px;
         grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     }
