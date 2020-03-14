@@ -5,18 +5,19 @@ import { connect } from 'react-redux';
 import { searchCountries, fetchCountriesByRegion, setSearchTerm } from '../../actions';
 import SelectFilter from '../../components/SelectFilter';
 
-const SearchAndFilter = ({searchCountries, fetchCountriesByRegion, setSearchTerm, searchTerm}) => {
+const SearchAndFilter = ({searchCountries, fetchCountriesByRegion, setSearchTerm, searchTerm, filter}) => {
     return (
         <div className={styles.container}>
             <SearchBox searchTerm={searchTerm} searchCountries={searchCountries} setSearchTerm={setSearchTerm}/>
-            <SelectFilter fetchCountriesByRegion={fetchCountriesByRegion} />
+            <SelectFilter filter={filter} fetchCountriesByRegion={fetchCountriesByRegion} />
         </div>
     );
 }
 
 const mapStateToProps = (state) => {
     return {
-        searchTerm: state.searchTerm
+        searchTerm: state.searchTerm,
+        filter: state.filter
     }
 }
 

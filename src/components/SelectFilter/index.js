@@ -1,10 +1,9 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import styles from "./styles.module.scss";
 import cx from 'classnames';
 
-const SelectFilter = ({fetchCountriesByRegion}) => {
+const SelectFilter = ({fetchCountriesByRegion, filter}) => {
   const [open, setOpen] = useState(false);
-  const [selectedOption, setSelectedOption] = useState('Filter By Region');
   const regionList = ["All", "Africa", "Americas", "Asia", "Europe", "Oceania"];
   const selectRef = useRef(null);
 
@@ -21,14 +20,13 @@ const SelectFilter = ({fetchCountriesByRegion}) => {
           setOpen(!open);
         }}
       >
-        {selectedOption}
+        {filter}
         <i className={cx('fa', {'fa-caret-down': !open}, {'fa-caret-up': open})}></i>
       </div>
       {open && (
         <div className={styles.dropdownMenu}>
           {regionList.map((region, index) => {
             return <div onClick={() => {
-                setSelectedOption(region);
                 fetchCountriesByRegion(region);
             }} className={styles.dropdownMenuItem} key={index}>{region}</div>;
           })}

@@ -3,7 +3,7 @@ import { FETCH_COUNTRIES, SET_LOADING, SET_SEARCH_RESULTS, SET_FILTER, SET_SEARC
 const initialState = {
     theme: 'Light',
     searchTerm: '',
-    filter: '',
+    filter: 'Filter By Region',
     allCountries: [],
     countryListWithCodes: [],
     countriesFilteredByRegion: [],
@@ -39,7 +39,7 @@ function countryReducer(state = initialState, action) {
         case SET_FILTER:
             return {
                 ...state,
-                filter: action.payload.region,
+                filter: action.payload,
             }
         case SET_ALL_COUNTRIES:
             return {
